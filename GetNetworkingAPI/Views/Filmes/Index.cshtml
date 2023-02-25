@@ -1,0 +1,58 @@
+﻿@model IEnumerable<GetNetworkingAPI.Models.Filme>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeFilme)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataLancamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duracao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VezesAssistidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsCurta)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeFilme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataLancamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duracao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VezesAssistidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsCurta)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdFilme">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdFilme">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdFilme">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

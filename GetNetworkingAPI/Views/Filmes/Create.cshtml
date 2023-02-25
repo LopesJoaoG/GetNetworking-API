@@ -1,0 +1,76 @@
+﻿@model GetNetworkingAPI.Models.Filme
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form asp-action="Create" asp-controller="Filmes" method="post" enctype="multipart/form-data">
+
+    <h1>Create</h1>
+
+    <h4>Filme</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="NomeFilme" class="control-label">Nome</label>
+                    <input asp-for="NomeFilme" class="form-control" />
+                    <span asp-validation-for="NomeFilme" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DataLancamento" class="control-label">Data de Lançamento</label>
+                    <input asp-for="DataLancamento" class="form-control" />
+                    <span asp-validation-for="DataLancamento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Duracao" class="control-label">Duração</label>
+                    <input asp-for="Duracao" class="form-control" />
+                    <span asp-validation-for="Duracao" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="VezesAssistidos" class="control-label">Número de Vezes Assistidos</label>
+                    <input asp-for="VezesAssistidos" class="form-control" />
+                    <span asp-validation-for="VezesAssistidos" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        É um Curta?
+                        <input class="form-check-input" asp-for="IsCurta" /> @Html.DisplayNameFor(model => model.IsCurta)
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <select style="width: 100%" id="mySelect2" asp-items="ViewBag.Categorias" multiple="">
+                    </select>
+                </div>
+                <div>
+                    <label class="col-form-label">Selecione o arquivo do Filme: </label>
+                    <input asp-for="ArquivoFilme" class="form-control-file" />
+                    <span asp-validation-for="ArquivoFilme" class="text-danger"></span>
+                </div>
+                @*<div>
+                        <label class="col-form-label">Selecione o arquivo do poster: </label>
+                        <input asp-for="ArquivoPoster" class="form-control" />
+                        <span asp-validation-for="ArquivoPoster" class="text-danger"></span>
+                    </div>*@
+                <div>
+
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

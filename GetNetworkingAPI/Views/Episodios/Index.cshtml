@@ -1,0 +1,65 @@
+﻿@model IEnumerable<GetNetworkingAPI.Models.Episodio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duracao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Temporada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CaminhoImagem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CaminhoEpisodio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duracao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Temporada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CaminhoImagem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CaminhoEpisodio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdEpisodio">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdEpisodio">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdEpisodio">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
